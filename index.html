@@ -16,7 +16,6 @@ body{
   overflow-x:hidden;
 }
 
-/* CONTAINER */
 .container{
   position:relative;
   width:100%;
@@ -84,9 +83,9 @@ body{
   position:absolute;
   width:90vw;
   max-width:650px;
-  padding:50px 35px;
+  padding:45px 30px;
   border-radius:8px;
-  line-height:1.8;
+  line-height:1.7;
   top:50%;
   left:50%;
   transform:translate(-50%, 40%) scale(.6);
@@ -99,6 +98,8 @@ body{
     #fdf6e3;
   background-size:4px 4px;
   box-shadow:0 25px 60px rgba(0,0,0,.35);
+  overflow-y:auto;
+  max-height:90vh;
 }
 
 /* ABERTO */
@@ -117,35 +118,37 @@ body{
   z-index:5;
 }
 
-/* Nome */
+/* TOPO (nome + data) */
+.topo{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  margin-bottom:20px;
+}
+
 .nome{
   font-family:'Great Vibes', cursive;
-  font-size:52px;
-  text-align:center;
-  margin-bottom:10px;
+  font-size:42px;
   color:#6b3e26;
 }
 
-/* Data */
 .data{
-  text-align:right;
   font-size:14px;
-  margin-bottom:20px;
+  margin-top:10px;
 }
 
 /* Texto */
 p{
-  margin-bottom:20px;
+  margin-bottom:18px;
 }
 
 /* Eu te amo */
 .teamo{
   text-align:right;
-  font-size:26px;
+  font-size:24px;
   color:#b22222;
   opacity:0;
-  margin-top:40px;
-  margin-bottom:10px;
+  margin-top:25px;
   font-family:'Great Vibes', cursive;
   transition:opacity 3s ease;
 }
@@ -154,16 +157,15 @@ p{
   opacity:1;
 }
 
-/* Assinatura */
 .assinatura{
   text-align:right;
   font-style:italic;
+  margin-bottom:20px;
 }
 
 /* Botão fechar */
 .fechar{
-  margin-top:25px;
-  padding:10px 20px;
+  padding:8px 18px;
   border:none;
   background:#6b3e26;
   color:white;
@@ -192,21 +194,13 @@ p{
 }
 
 /* RESPONSIVO */
-@media (max-width: 600px){
-
+@media (max-width:600px){
   .nome{
-    font-size:36px;
+    font-size:32px;
   }
-
-  .teamo{
-    font-size:22px;
+  .data{
+    font-size:12px;
   }
-
-  .carta{
-    padding:35px 20px;
-    line-height:1.6;
-  }
-
 }
 </style>
 </head>
@@ -222,9 +216,11 @@ p{
   </div>
 
   <div class="carta">
-    <div class="data" id="dataAtual"></div>
 
-    <div class="nome">Ana Paula</div>
+    <div class="topo">
+      <div class="nome">Ana Paula</div>
+      <div class="data" id="dataAtual"></div>
+    </div>
 
     <p><strong>Meu amor,</strong></p>
 
@@ -251,6 +247,7 @@ p{
     </div>
 
     <button class="fechar" onclick="fecharCarta()">Fechar carta 💌</button>
+
   </div>
 
 </div>
@@ -275,7 +272,7 @@ document.getElementById("dataAtual").textContent =
   data.toLocaleDateString("pt-BR", opcoes);
 
 function criarPetalas(){
-  for(let i=0;i<25;i++){
+  for(let i=0;i<20;i++){
     const petala = document.createElement("div");
     petala.classList.add("petala");
     petala.style.left = Math.random()*100+"vw";
