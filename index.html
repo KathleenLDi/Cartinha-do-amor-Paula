@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Ana Paula 💌</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(135deg,#d9c7b8,#e8d5c4);
+  overflow:hidden;
+  font-family:"Georgia",serif;
+}
+
+/* CONTAINER */
+.container{
+  position:relative;
+  width:350px;
+  height:250px;
+}
+
+/* ENVELOPE */
+.envelope{
+  position:absolute;
+  width:100%;
+  height:100%;
+  cursor:pointer;
+  z-index:3;
+}
+
+.base{
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:#fffdf8;
+  border-radius:8px;
+  box-shadow:0 15px 40px rgba(0,0,0,.25);
+}
+
+.flap{
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:#f7efe5;
+  clip-path:polygon(0 0, 100% 0, 50% 60%);
+  transform-origin:top;
+  transition:transform 1s ease;
+}
+
+/* Selo */
+.selo{
+  position:absolute;
+  width:60px;
+  height:60px;
+  background:#b22222;
+  border-radius:50%;
+  top:90px;
+  left:50%;
+  transform:translateX(-50%);
+  box-shadow:inset -5px -5px 10px rgba(0,0,0,.3),
+             inset 5px 5px 10px rgba(255,255,255,.2);
+  z-index:4;
+  transition:opacity .5s ease;
+}
+
+.selo::after{
+  content:"❤";
+  color:white;
+  font-size:22px;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+}
+
+/* CARTA */
+.carta{
+  position:absolute;
+  width:650px;
+  max-width:90vw;
+  padding:60px;
+  border-radius:8px;
+  line-height:1.8;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, 40%) scale(.6);
+  opacity:0;
+  transition:all 1.2s ease;
+  z-index:1;
+
+  background:
+    radial-gradient(rgba(0,0,0,.03) 1px, transparent 1px),
+    #fdf6e3;
+  background-size:4px 4px;
+  box-shadow:0 25px 60px rgba(0,0,0,.35);
+}
+
+/* ABERTO */
+.aberto .flap{
+  transform:rotateX(180deg);
+}
+
+.aberto .selo{
+  opacity:0;
+}
+
+.aberto .carta{
+  opacity:1;
+  top:50%;
+  transform:translate(-50%, -50%) scale(1);
+  z-index:5;
+}
+
+/* Nome */
+.nome{
+  font-family:'Great Vibes', cursive;
+  font-size:52px;
+  text-align:center;
+  margin-bottom:10px;
+  color:#6b3e26;
+}
+
+/* Data */
+.data{
+  text-align:right;
+  font-size:14px;
+  margin-bottom:20px;
+}
+
+/* Eu te amo */
+.teamo{
+  text-align:right;
+  font-size:26px;
+  color:#b22222;
+  opacity:0;
+  margin-top:40px;
+  margin-bottom:10px;
+  font-family:'Great Vibes', cursive;
+  transition:opacity 3s ease;
+}
+
+.aberto .teamo{
+  opacity:1;
+}
+
+/* Assinatura */
+.assinatura{
+  text-align:right;
+  font-style:italic;
+}
+
+/* Botão fechar */
+.fechar{
+  margin-top:25px;
+  padding:8px 18px;
+  border:none;
+  background:#6b3e26;
+  color:white;
+  border-radius:20px;
+  cursor:pointer;
+  float:right;
+  transition:.3s;
+}
+
+.fechar:hover{
+  background:#4a2a1a;
+}
+
+/* Pétalas */
+.petala{
+  position:absolute;
+  width:15px;
+  height:15px;
+  border-radius:50% 50% 50% 0;
+  opacity:.8;
+  animation:cair linear infinite;
+}
+
+@keyframes cair{
+  0%{transform:translateY(-100px) rotate(0deg);}
+  100%{transform:translateY(100vh) rotate(360deg);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container" id="container">
+
+  <div class="envelope" id="envelope">
+    <div class="base"></div>
+    <div class="flap"></div>
+    <div class="selo"></div>
+  </div>
+
+  <div class="carta">
+    <div class="data" id="dataAtual"></div>
+
+    <div class="nome">Ana Paula</div>
+
+    <p><strong>Meu amor,</strong></p>
+
+    <p>
+    Eu venho através desta cartinha te dizer o quanto eu estou extremamente orgulhosa de você, do seu esforço e da pessoa incrível que você vem se tornando.
+    Eu vejo a sua dedicação, a sua entrega, a sua força mesmo nos dias mais difíceis, e isso me enche de orgulho.
+    </p>
+
+    <p>
+    Você é determinada, incrível, inteligente e tem uma luz que ilumina tudo ao seu redor.
+    Eu admiro cada passo que você dá e quero que saiba que sempre estarei aqui com você, te incentivando, te aplaudindo, tendo conversas sérias quando for preciso para você crescer ainda mais, e, claro, colocando o dedo no seu nariz todas as vezes que a gente se encontra.
+    </p>
+
+    <p>
+    Continue acreditando em você, porque eu acredito, e acredito demais.
+    Eu vou estar sempre aqui, do seu lado.
+    </p>
+
+    <div class="teamo">Eu te amo 💖</div>
+
+    <div class="assinatura">
+      Com todo meu carinho,<br>
+      Seu amor 💛
+    </div>
+
+    <button class="fechar" onclick="fecharCarta()">Fechar carta 💌</button>
+  </div>
+
+</div>
+
+<script>
+const envelope = document.getElementById("envelope");
+const container = document.getElementById("container");
+
+envelope.addEventListener("click",()=>{
+  container.classList.add("aberto");
+  criarPetalas();
+});
+
+function fecharCarta(){
+  container.classList.remove("aberto");
+  document.querySelectorAll(".petala").forEach(p=>p.remove());
+}
+
+const data = new Date();
+const opcoes = { day: "2-digit", month: "long", year: "numeric" };
+document.getElementById("dataAtual").textContent =
+  data.toLocaleDateString("pt-BR", opcoes);
+
+function criarPetalas(){
+  for(let i=0;i<30;i++){
+    const petala = document.createElement("div");
+    petala.classList.add("petala");
+    petala.style.left = Math.random()*100+"vw";
+    petala.style.animationDuration = (5+Math.random()*5)+"s";
+    petala.style.background = `hsl(${330+Math.random()*20},70%,75%)`;
+    document.body.appendChild(petala);
+  }
+}
+</script>
+
+</body>
+</html>
